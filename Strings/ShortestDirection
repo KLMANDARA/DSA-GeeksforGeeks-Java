@@ -1,0 +1,39 @@
+class Solution {
+    String shortestPath(String S) {
+        int north = 0, south = 0, east = 0, west = 0;
+        
+        // Count each direction
+        for (int i = 0; i < S.length(); i++) {
+            char c = S.charAt(i);
+            if (c == 'N') north++;
+            else if (c == 'S') south++;
+            else if (c == 'E') east++;
+            else if (c == 'W') west++;
+        }
+        
+        // Net displacement
+        int vertical = north - south;
+        int horizontal = east - west;
+        
+        StringBuilder result = new StringBuilder();
+        
+        // Lexicographical order: E < N < S < W (you can adjust order if needed)
+        if (horizontal > 0) {
+            for (int i = 0; i < horizontal; i++) result.append('E');
+        }
+        
+        if (vertical > 0) {
+            for (int i = 0; i < vertical; i++) result.append('N');
+        }
+        
+        if (vertical < 0) {
+            for (int i = 0; i < -vertical; i++) result.append('S');
+        }
+        
+        if (horizontal < 0) {
+            for (int i = 0; i < -horizontal; i++) result.append('W');
+        }
+        
+        return result.toString();
+    }
+}
