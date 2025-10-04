@@ -6,7 +6,7 @@ class SpecialQueue {
     private Deque<Integer> maxDeque;
 
     public SpecialQueue() {
-        queue = new LinkedList<>();
+    queue = new LinkedList<>();
         minDeque = new LinkedList<>();
         maxDeque = new LinkedList<>();
     }
